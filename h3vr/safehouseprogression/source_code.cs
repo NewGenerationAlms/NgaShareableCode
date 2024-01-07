@@ -19,12 +19,15 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Threading;
 using FMOD;
+using Atlas;
+using Sodalite.ModPanel;
 
 namespace NGA
 {
     //[BepInAutoPlugin]
     [BepInPlugin("NGA.SafehouseProgression", "SafehouseProgression", "0.0.1")]
     [BepInDependency("nrgill28.Sodalite", "1.4.1")]
+    [BepInDependency("nrgill28.Atlas", "1.0.0")]
     [BepInProcess("h3vr.exe")]
     public partial class SafehouseProgression : BaseUnityPlugin
     {
@@ -49,7 +52,10 @@ namespace NGA
         public static bool extracting_to_safehouse_need_map = false;
 
         // Player-Configurable Vars.
+        private static ConfigEntry<int> config_safehouse_index;
         private static ConfigEntry<string> config_safehouse_scene_name;
+        private static ConfigEntry<string> config_safehouse_scene_name_TWO;
+        private static ConfigEntry<string> config_safehouse_scene_name_THREE;
         
         public struct MyWristButton {
             public Action<object> onclick;
@@ -79,10 +85,28 @@ namespace NGA
 
         // Assigns player-set variables.
         private void SetUpConfigFields() {
+            config_safehouse_index = Config.Bind("House",
+                                         "SceneID INDEX",
+                                         1,
+                                         new ConfigDescription("Swap between 3 safehouse scene IDs you specified below. All your safehouses will be saved.", new AcceptableValueIntRangeStep(1, 3, 1)));
             config_safehouse_scene_name = Config.Bind("House",
-                                         "Safehouse Scene ID",
+                                         "Safehouse Scene ID: 1",
                                          "GP_Hangar",
-                                         "Requires scene to be scene-save enabled. Will CRASH if you get ID wrong. Find IDs in H3VR Wiki.");
+                                         "Examples: IndoorRange, ArizonaTargets, Grillhouse_2Story. Find more in Thunderstore. Will CRASH if you get ID wrong.");
+            config_safehouse_scene_name_TWO = Config.Bind("House",
+                                         "Safehouse Scene ID: 2",
+                                         "IndoorRange",
+                                         "Index: 2");
+            config_safehouse_scene_name_THREE = Config.Bind("House",
+                                         "Safehouse Scene ID: 3",
+                                         "Grillhouse_2Story",
+                                         "Index: 3");
+        }
+
+        private static string GetSafehouseName() {
+            List<string> safehouses = new List<string>{config_safehouse_scene_name.Value, config_safehouse_scene_name_TWO.Value,
+                                                        config_safehouse_scene_name_THREE.Value};
+            return safehouses[config_safehouse_index.Value - 1];
         }
 
         [HarmonyPatch(typeof(FVRWristMenu2))]
@@ -126,8 +150,9 @@ namespace NGA
 		class FVRSceneSettingsLoadDefaultSceneRoutineHook
 		{
             static void Prefix(FVRSceneSettings __instance) {
-                if (SceneManager.GetActiveScene().name == config_safehouse_scene_name.Value && extracting_to_safehouse_need_map) {
-                    GM.CurrentSceneSettings.DefaultVaultSceneConfig.vf = null;
+                if (SceneManager.GetActiveScene().name == GetSafehouseName() && extracting_to_safehouse_need_map
+                        && GM.CurrentSceneSettings && GM.CurrentSceneSettings.DefaultVaultSceneConfig != null) {
+                    GM.CurrentSceneSettings.DefaultVaultSceneConfig = null;
                 }
             }
 			static void Postfix(FVRSceneSettings __instance)
@@ -136,12 +161,12 @@ namespace NGA
                     Logger.LogMessage("FVRSceneSettings is null!?");
                 }
                 Logger.LogMessage("Trying to save in scene: " + SceneManager.GetActiveScene().name);
-                if (SceneManager.GetActiveScene().name == config_safehouse_scene_name.Value && extracting_to_safehouse_need_map) {
-                    GM.CurrentSceneSettings.DefaultVaultSceneConfig.vf = __instance.DefaultVaultSceneConfig.vf;
+                if (SceneManager.GetActiveScene().name == GetSafehouseName() && extracting_to_safehouse_need_map) {
+                    //GM.CurrentSceneSettings.DefaultVaultSceneConfig.vf = __instance.DefaultVaultSceneConfig.vf;
                     extracting_to_safehouse_need_map = false;
                     string error;
                     VaultFile again_vault_file = new VaultFile();
-                    string this_safehouse_file_name = config_safehouse_scene_name.Value + "_" + safehouse_persistent_filename;
+                    string this_safehouse_file_name = GetSafehouseName() + "_" + safehouse_persistent_filename;
                     bool load_file_status = VaultSystem.LoadVaultFile(this_safehouse_file_name,
                                                                         VaultFileDisplayMode.SceneConfigs,
                                                                         out again_vault_file);
@@ -282,7 +307,7 @@ namespace NGA
             if (!myWM.confirmedExtractToSafehouse) { // if confirmed value isn't tre
                 myWM.ResetConfirm();
                 myWM.confirmedExtractToSafehouse = true;
-                myWM.TXT_Extract.text = "Confirm ??";
+                myWM.TXT_Extract.text = "Extract-to-Safehouse ??";
                 return;
             }
             myWM.ResetConfirm();
@@ -306,7 +331,14 @@ namespace NGA
 			}
 			if (GM.LoadingCallback.IsCompleted)
 			{
-				SteamVR_LoadLevel.Begin(config_safehouse_scene_name.Value, false, 0.5f, 0f, 0f, 0f, 1f);
+                // Checks for if it's a custom scene and swaps load function.
+				CustomSceneInfo customScene = AtlasPlugin.GetCustomScene(GetSafehouseName());
+                if (customScene != null) {
+                    AtlasPlugin.LoadCustomScene(GetSafehouseName());
+                } else {
+                    Logger.LogMessage("WARNING: Map being loaded was determined to NOT be a mod: " + GetSafehouseName());
+                    SteamVR_LoadLevel.Begin(GetSafehouseName(), false, 0.5f, 0f, 0f, 0f, 1f);
+                }
 			}
 		}
 
@@ -316,7 +348,7 @@ namespace NGA
             if (!myWM.confirmedLeaveTheSafehouse) { // if confirmed value isn't tre
                 myWM.ResetConfirm();
                 myWM.confirmedLeaveTheSafehouse = true;
-                myWM.TXT_Leave.text = "Confirm ??";
+                myWM.TXT_Leave.text = "Leave-the-Safehouse ??";
                 return;
             }
             myWM.ResetConfirm();
@@ -338,7 +370,7 @@ namespace NGA
             // T-ODO: Scan respawn point?
             bool scanned_scene = VaultSystem.FindAndScanObjectsInScene(safehouse_vault_file);
             if (scanned_scene) {
-                string this_safehouse_file_name = config_safehouse_scene_name.Value + "_" + safehouse_persistent_filename;
+                string this_safehouse_file_name = GetSafehouseName() + "_" + safehouse_persistent_filename;
                 if (!VaultSystem.SaveVaultFile(this_safehouse_file_name,  
                         VaultFileDisplayMode.SceneConfigs, safehouse_vault_file)) {
                     Logger.LogMessage("ERROR: Safehouse Scene Vault file not saved :(");
@@ -363,7 +395,7 @@ namespace NGA
 
                     // Format the date and time as a string suitable for a filename
                     string formattedDateTime = currentDateTime.ToString("yyyyMMdd_HHmmss");
-                    string this_safehouse_file_name = config_safehouse_scene_name.Value + "_" + safehouse_save_filename
+                    string this_safehouse_file_name = GetSafehouseName() + "_" + safehouse_save_filename
                                                         + "_" + formattedDateTime;
                     if (!VaultSystem.SaveVaultFile(this_safehouse_file_name,  
                             VaultFileDisplayMode.SceneConfigs, secondVaultFile)) {
@@ -380,7 +412,7 @@ namespace NGA
             if (!myWM.confirmedDeploySafehouseLoadout) { // if confirmed value isn't tre
                 myWM.ResetConfirm();
                 myWM.confirmedDeploySafehouseLoadout = true;
-                myWM.TXT_Deploy.text = "Confirm ??";
+                myWM.TXT_Deploy.text = "Deployment-Loadout ??";
                 return;
             }
             myWM.ResetConfirm();
@@ -400,75 +432,6 @@ namespace NGA
             VaultFile clean_vault_file = new VaultFile();
             VaultSystem.SaveVaultFile(safehouse_deployment_loadout_filename,  
             VaultFileDisplayMode.Loadouts, clean_vault_file);
-        }
-
-        [HarmonyPatch(typeof(FVRViveHand))]
-        [HarmonyPatch("Update")]
-        class FVRViveHandUpdateHook
-        {
-            static void Postfix(FVRViveHand __instance) {
-                if (__instance.Input.IsGrabDown) {
-                    Logger.LogMessage("IsGrabDown");
-                    if (__instance.CurrentInteractable == null) {
-                        Logger.LogMessage("No current interactable");
-                        if (__instance.ClosestPossibleInteractable == null) {
-                            Logger.LogMessage("No closest interactable");
-                            // (find other hand that isn't me)
-                            GameObject _player = UnityEngine.Object.FindObjectOfType<FVRPlayerBody>().gameObject;
-                            if (_player == null) {
-                                Logger.LogMessage("Player null!!!!!!!!!!!!!!!!!!!!");
-                                return;
-                            }
-                            FVRViveHand leftHand = _player.transform.Find("Controller (left)").GetComponent<FVRViveHand>();
-                            FVRViveHand rightHand = _player.transform.Find("Controller (right)").GetComponent<FVRViveHand>();
-                            FVRViveHand otherHand = null;
-                            if (leftHand == __instance) {
-                                Logger.LogMessage("Lefthand is __instance");
-                                otherHand = rightHand;
-                            }
-                            if (rightHand == __instance) {
-                                Logger.LogMessage("Righthand is __instance");
-                                otherHand = leftHand;
-                            }
-                            if (otherHand == null) {
-                                Logger.LogMessage("Neither hand matched!!!!!!!!!!!!!!!!!!");
-                                return;
-                            }
-                            Logger.LogMessage("Chk1");
-                            if (otherHand.CurrentInteractable != null)
-                                Logger.LogMessage("Otherhand has CurrInteractible.");
-                            else
-                                return;
-
-                            if (otherHand.CurrentInteractable is FVRFireArm)
-                                Logger.LogMessage("Otherhand CurrInteractible is FVRPhysicalObject.");
-                            else
-                                return;
-                            if (((FVRFireArm)otherHand.CurrentInteractable).Foregrip.GetComponent<FVRAlternateGrip>() != null)
-                                Logger.LogMessage("CurrInteractible has AltGrip");
-                            else
-                                return;
-                            // Begin interaction.
-                            // Calc if distance is ok to start it.
-                            Transform interactableTransform = ((FVRFireArm)otherHand.CurrentInteractable).Foregrip.GetComponent<Transform>();
-                            // Calculate the distance between __instance and the interactable object's Foregrip
-                            float distance = Vector3.Distance(__instance.transform.position, interactableTransform.position);
-                            // Check if the distance is less than 15cm (0.15 meters)
-                            if (distance < 0.10f)
-                            {
-                                __instance.CurrentInteractable = ((FVRFireArm)otherHand.CurrentInteractable).Foregrip.GetComponent<FVRAlternateGrip>();
-                                __instance.m_state = FVRViveHand.HandState.GripInteracting;
-                                __instance.CurrentInteractable.BeginInteraction(__instance);
-                                __instance.Buzz(__instance.Buzzer.Buzz_BeginInteraction);
-                            } else {
-                                Logger.LogMessage("Too far!!");
-                            }
-                            
-                        }
-                        
-                    }
-                }
-            }
         }
         
         // The line below allows access to your plugin's logger from anywhere in your code, including outside of this file.
