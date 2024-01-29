@@ -1,0 +1,1320 @@
+{
+    "FileName": "STASH COVERT 1",
+    "ReferencePath": "Vault\\Objects\\BareObjects\\STASH COVERT 1_VFO.json",
+    "Creator": "your_mother",
+    "ModsUsed": [],
+    "Objects": [
+        {
+            "Index": 0,
+            "IsContainedIn": -1,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "GunCaseSaveable_Small",
+                    "Type": "object",
+                    "PosOffset": {
+                        "x": -0.2178886979818344,
+                        "y": -0.39291107654571535,
+                        "z": -0.044033482670784
+                    },
+                    "OrientationForward": {
+                        "x": -0.9988897442817688,
+                        "y": 0.000002748410906860954,
+                        "z": -0.04711223021149635
+                    },
+                    "OrientationUp": {
+                        "x": 0.000002833129656210076,
+                        "y": 1.0,
+                        "z": -0.0000017314611113761203
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [
+                        {
+                            "x": 0.04736536741256714,
+                            "y": 0.04060511291027069,
+                            "z": -0.09823116660118103
+                        },
+                        {
+                            "x": -0.13211865723133088,
+                            "y": 0.052371829748153689,
+                            "z": -0.16810208559036256
+                        },
+                        {
+                            "x": -0.05195540562272072,
+                            "y": 0.03257904574275017,
+                            "z": -0.19795967638492585
+                        },
+                        {
+                            "x": -0.12253350764513016,
+                            "y": 0.03215403854846954,
+                            "z": -0.20162762701511384
+                        },
+                        {
+                            "x": -0.13398604094982148,
+                            "y": 0.07228530943393707,
+                            "z": -0.07807505130767822
+                        },
+                        {
+                            "x": -0.0737689957022667,
+                            "y": 0.07342667132616043,
+                            "z": -0.06841278076171875
+                        },
+                        {
+                            "x": -0.11318725347518921,
+                            "y": 0.09202492237091065,
+                            "z": -0.07571178674697876
+                        },
+                        {
+                            "x": -0.06284403800964356,
+                            "y": 0.05306689813733101,
+                            "z": -0.16388247907161714
+                        },
+                        {
+                            "x": -0.09732095152139664,
+                            "y": 0.0530337430536747,
+                            "z": -0.17171314358711244
+                        },
+                        {
+                            "x": -0.09262581169605255,
+                            "y": 0.032331936061382297,
+                            "z": -0.17580389976501466
+                        },
+                        {
+                            "x": -0.13222454488277436,
+                            "y": 0.03762524202466011,
+                            "z": 0.02737550064921379
+                        },
+                        {
+                            "x": -0.10936696082353592,
+                            "y": 0.03798803687095642,
+                            "z": 0.17323638498783112
+                        }
+                    ],
+                    "GenericRotations": [
+                        {
+                            "x": 0.024169281125068666,
+                            "y": -0.023184288293123246,
+                            "z": -0.7009917497634888,
+                            "w": 0.7123826742172241
+                        },
+                        {
+                            "x": -0.4585047960281372,
+                            "y": 0.46617627143859866,
+                            "z": -0.5346367359161377,
+                            "w": 0.5353660583496094
+                        },
+                        {
+                            "x": -0.44767019152641299,
+                            "y": 0.4462811052799225,
+                            "z": -0.5454921722412109,
+                            "w": 0.5503299236297607
+                        },
+                        {
+                            "x": -0.45462730526924136,
+                            "y": 0.4538816809654236,
+                            "z": -0.5376596450805664,
+                            "w": 0.5461022853851318
+                        },
+                        {
+                            "x": 0.5455321669578552,
+                            "y": 0.5344110727310181,
+                            "z": 0.4558533728122711,
+                            "w": 0.45716214179992678
+                        },
+                        {
+                            "x": 0.5603943467140198,
+                            "y": 0.5627331733703613,
+                            "z": 0.43199101090431216,
+                            "w": 0.42740318179130556
+                        },
+                        {
+                            "x": 0.5628465414047241,
+                            "y": 0.5327978134155273,
+                            "z": 0.43786418437957766,
+                            "w": 0.45563727617263796
+                        },
+                        {
+                            "x": -0.46427690982818606,
+                            "y": 0.46041086316108706,
+                            "z": -0.5324925780296326,
+                            "w": 0.5375133752822876
+                        },
+                        {
+                            "x": -0.45690006017684939,
+                            "y": 0.46370357275009158,
+                            "z": -0.5396835207939148,
+                            "w": 0.5338194370269775
+                        },
+                        {
+                            "x": -0.47159940004348757,
+                            "y": 0.4726331830024719,
+                            "z": -0.5269541144371033,
+                            "w": 0.525862455368042
+                        },
+                        {
+                            "x": -0.4952143430709839,
+                            "y": 0.5558031797409058,
+                            "z": -0.44366317987442019,
+                            "w": 0.4990077018737793
+                        },
+                        {
+                            "x": 0.4543135166168213,
+                            "y": 0.44939351081848147,
+                            "z": 0.5448799729347229,
+                            "w": 0.5429094433784485
+                        }
+                    ],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged",
+                            "isCoverOpen",
+                            "isLatch1Open",
+                            "isLatch2Open"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False",
+                            "false",
+                            "false",
+                            "false"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 1,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MP5KA3",
+                    "Type": "firearm",
+                    "PosOffset": {
+                        "x": 1.4325377941131592,
+                        "y": -0.3723077178001404,
+                        "z": -0.20188289880752564
+                    },
+                    "OrientationForward": {
+                        "x": -0.9987595677375794,
+                        "y": -0.0020833611488342287,
+                        "z": 0.0497511588037014
+                    },
+                    "OrientationUp": {
+                        "x": 0.049712713807821277,
+                        "y": 0.01564115285873413,
+                        "z": 0.9986411929130554
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged",
+                            "HammerState",
+                            "FireSelectorState"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False",
+                            "Uncocked",
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "Index": 1,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 0.0,
+                        "y": 3.576268170490948e-7,
+                        "z": 0.13999998569488526
+                    },
+                    "OrientationForward": {
+                        "x": 2.856425318498168e-9,
+                        "y": 0.1908089965581894,
+                        "z": 0.9816271662712097
+                    },
+                    "OrientationUp": {
+                        "x": 2.966511125634952e-8,
+                        "y": 0.9816271662712097,
+                        "z": -0.1908089965581894
+                    },
+                    "ObjectAttachedTo": 0,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                },
+                {
+                    "Index": 2,
+                    "ObjectID": "G3PicatinnyAdapter",
+                    "Type": "attachment",
+                    "PosOffset": {
+                        "x": 0.0,
+                        "y": 0.08999977260828018,
+                        "z": 0.07999971508979798
+                    },
+                    "OrientationForward": {
+                        "x": 5.960464477539063e-8,
+                        "y": 5.960464477539063e-8,
+                        "z": 1.0
+                    },
+                    "OrientationUp": {
+                        "x": -1.7763568394002506e-15,
+                        "y": 1.0,
+                        "z": -5.960464477539063e-8
+                    },
+                    "ObjectAttachedTo": 0,
+                    "MountAttachedTo": 1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                },
+                {
+                    "Index": 3,
+                    "ObjectID": "TacticalLaser1",
+                    "Type": "attachment",
+                    "PosOffset": {
+                        "x": 2.3841799645651918e-7,
+                        "y": 0.11479910463094711,
+                        "z": 0.11503952741622925
+                    },
+                    "OrientationForward": {
+                        "x": 5.960462701182223e-8,
+                        "y": 5.960463056453591e-8,
+                        "z": 1.0
+                    },
+                    "OrientationUp": {
+                        "x": -1.1920926112907182e-7,
+                        "y": 1.0,
+                        "z": -5.960462345910855e-8
+                    },
+                    "ObjectAttachedTo": 2,
+                    "MountAttachedTo": 0,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 2,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.4810261726379395,
+                        "y": -0.36045658588409426,
+                        "z": -0.38827866315841677
+                    },
+                    "OrientationForward": {
+                        "x": -0.028676608577370645,
+                        "y": -0.007956449873745442,
+                        "z": 0.9995570778846741
+                    },
+                    "OrientationUp": {
+                        "x": 0.9995551109313965,
+                        "y": 0.007992937229573727,
+                        "z": 0.0287401732057333
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 3,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.5200202465057374,
+                        "y": -0.3802761435508728,
+                        "z": -0.312146931886673
+                    },
+                    "OrientationForward": {
+                        "x": -0.08538349717855454,
+                        "y": 0.0054184794425964359,
+                        "z": 0.9963334202766419
+                    },
+                    "OrientationUp": {
+                        "x": 0.9963414669036865,
+                        "y": 0.004154368303716183,
+                        "z": 0.08536158502101898
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 4,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.5154427289962769,
+                        "y": -0.3806722164154053,
+                        "z": -0.38267210125923159
+                    },
+                    "OrientationForward": {
+                        "x": -0.05874219909310341,
+                        "y": 0.008052533492445946,
+                        "z": 0.9982407093048096
+                    },
+                    "OrientationUp": {
+                        "x": 0.9982404112815857,
+                        "y": 0.008578653447329998,
+                        "z": 0.05867297574877739
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 5,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.3913918733596802,
+                        "y": -0.3405584692955017,
+                        "z": -0.3796391487121582
+                    },
+                    "OrientationForward": {
+                        "x": 0.28011319041252139,
+                        "y": -0.011932432651519776,
+                        "z": 0.959892749786377
+                    },
+                    "OrientationUp": {
+                        "x": -0.9599393606185913,
+                        "y": -0.011058332398533821,
+                        "z": 0.2799893319606781
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 6,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.3888089656829835,
+                        "y": -0.3394429683685303,
+                        "z": -0.31870603561401369
+                    },
+                    "OrientationForward": {
+                        "x": 0.37206196784973147,
+                        "y": 0.006822720170021057,
+                        "z": 0.92818284034729
+                    },
+                    "OrientationUp": {
+                        "x": -0.928199291229248,
+                        "y": -0.0015936195850372315,
+                        "z": 0.3720802664756775
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 7,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.3914644718170167,
+                        "y": -0.3208276033401489,
+                        "z": -0.35869836807250979
+                    },
+                    "OrientationForward": {
+                        "x": 0.3139371871948242,
+                        "y": -0.0466776043176651,
+                        "z": 0.9482956528663635
+                    },
+                    "OrientationUp": {
+                        "x": -0.9494420886039734,
+                        "y": -0.017298243939876558,
+                        "z": 0.3134652376174927
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 8,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.4849040508270264,
+                        "y": -0.35979002714157107,
+                        "z": -0.3189837336540222
+                    },
+                    "OrientationForward": {
+                        "x": -0.028711741790175439,
+                        "y": 0.008356980048120022,
+                        "z": 0.9995527863502502
+                    },
+                    "OrientationUp": {
+                        "x": 0.9995863437652588,
+                        "y": 0.0019164157565683127,
+                        "z": 0.028696680441498758
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 9,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.4886655807495118,
+                        "y": -0.35980796813964846,
+                        "z": -0.3541381359100342
+                    },
+                    "OrientationForward": {
+                        "x": -0.03629937767982483,
+                        "y": -0.013125348836183548,
+                        "z": 0.9992547631263733
+                    },
+                    "OrientationUp": {
+                        "x": 0.9993408918380737,
+                        "y": 0.00008391635492444038,
+                        "z": 0.03630360588431358
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 10,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "MagazineMp530rnd",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 1.4932781457901,
+                        "y": -0.38051092624664309,
+                        "z": -0.3499600887298584
+                    },
+                    "OrientationForward": {
+                        "x": 0.008102514781057835,
+                        "y": -0.0025369208306074144,
+                        "z": 0.9999639987945557
+                    },
+                    "OrientationUp": {
+                        "x": 0.9999672174453735,
+                        "y": -0.00003873260720865801,
+                        "z": -0.008102639578282833
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 11,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "SuppressorG19",
+                    "Type": "attachment",
+                    "PosOffset": {
+                        "x": 1.286868691444397,
+                        "y": -0.3752381205558777,
+                        "z": -0.36562180519104006
+                    },
+                    "OrientationForward": {
+                        "x": 0.22336111962795258,
+                        "y": 0.0006738007068634033,
+                        "z": 0.9747355580329895
+                    },
+                    "OrientationUp": {
+                        "x": 0.9681298732757568,
+                        "y": 0.116071417927742,
+                        "z": -0.22192765772342683
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 12,
+            "IsContainedIn": 0,
+            "QuickbeltSlotIndex": -1,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "G17",
+                    "Type": "firearm",
+                    "PosOffset": {
+                        "x": 1.1446627378463746,
+                        "y": -0.3749105930328369,
+                        "z": -0.3259304463863373
+                    },
+                    "OrientationForward": {
+                        "x": -0.06754045933485031,
+                        "y": -0.003997884690761566,
+                        "z": 0.9977085590362549
+                    },
+                    "OrientationUp": {
+                        "x": -0.9976924657821655,
+                        "y": -0.0066923052072525028,
+                        "z": -0.06756618618965149
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged",
+                            "HammerState"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False",
+                            "Uncocked"
+                        ]
+                    }
+                },
+                {
+                    "Index": 1,
+                    "ObjectID": "MagazineG17Standard",
+                    "Type": "magazine",
+                    "PosOffset": {
+                        "x": 0.0,
+                        "y": -0.03141838684678078,
+                        "z": -0.008899682201445103
+                    },
+                    "OrientationForward": {
+                        "x": -4.8348887560223378e-8,
+                        "y": -0.342020183801651,
+                        "z": 0.9396926164627075
+                    },
+                    "OrientationUp": {
+                        "x": -6.904936356022518e-8,
+                        "y": 0.9396926164627075,
+                        "z": 0.342020183801651
+                    },
+                    "ObjectAttachedTo": 0,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                },
+                {
+                    "Index": 2,
+                    "ObjectID": "SureglowLight",
+                    "Type": "attachment",
+                    "PosOffset": {
+                        "x": 0.0,
+                        "y": 0.007240051403641701,
+                        "z": 0.12065019458532334
+                    },
+                    "OrientationForward": {
+                        "x": -3.576278118089249e-7,
+                        "y": 1.4156107397411689e-7,
+                        "z": 1.0
+                    },
+                    "OrientationUp": {
+                        "x": -2.942979335784912e-7,
+                        "y": -1.0,
+                        "z": 1.4156096028727917e-7
+                    },
+                    "ObjectAttachedTo": 0,
+                    "MountAttachedTo": 1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "QuickbeltLayoutName": ""
+}

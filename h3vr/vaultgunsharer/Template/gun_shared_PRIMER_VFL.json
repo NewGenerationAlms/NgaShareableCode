@@ -1,0 +1,159 @@
+{
+    "FileName": "PRIMER",
+    "ReferencePath": "Vault\\Objects\\LoadOuts\\PRIMER_VFL.json",
+    "Creator": "mr_juicy_j",
+    "ModsUsed": [],
+    "Objects": [
+        {
+            "Index": 0,
+            "IsContainedIn": -1,
+            "QuickbeltSlotIndex": 4,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "Mosin91_30",
+                    "Type": "firearm",
+                    "PosOffset": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "OrientationForward": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "OrientationUp": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged",
+                            "HammerState",
+                            "FireSelectorState"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False",
+                            "Uncocked",
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "Index": 1,
+                    "ObjectID": "ScopeMosinPU",
+                    "Type": "attachment",
+                    "PosOffset": {
+                        "x": -0.020000450313091279,
+                        "y": 0.031919948756694797,
+                        "z": 0.11419292539358139
+                    },
+                    "OrientationForward": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                    },
+                    "OrientationUp": {
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                    },
+                    "ObjectAttachedTo": 0,
+                    "MountAttachedTo": 0,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged",
+                            "m_zoomSettingIndex",
+                            "ZeroDistanceIndex",
+                            "ElevationStep",
+                            "WindageStep"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Index": 1,
+            "IsContainedIn": -1,
+            "QuickbeltSlotIndex": 8,
+            "InSlotOfRootObjectIndex": -1,
+            "InSlotOfElementIndex": -1,
+            "Elements": [
+                {
+                    "Index": 0,
+                    "ObjectID": "762x54mmRCartridgeFMJ",
+                    "Type": "object",
+                    "PosOffset": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "OrientationForward": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "OrientationUp": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "ObjectAttachedTo": -1,
+                    "MountAttachedTo": -1,
+                    "LoadedRoundsInChambers": [],
+                    "LoadedRoundsInMag": [],
+                    "GenericInts": [],
+                    "GenericStrings": [],
+                    "GenericVector3s": [],
+                    "GenericRotations": [],
+                    "Flags": {
+                        "_keys": [
+                            "IsKinematicLocked",
+                            "IsPickupLocked",
+                            "QuickBeltSpecialStateEngaged"
+                        ],
+                        "_values": [
+                            "False",
+                            "False",
+                            "False"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "QuickbeltLayoutName": "QuickBeltPrefab_Config8_TacticalMk3"
+}

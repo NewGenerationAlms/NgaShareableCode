@@ -1,0 +1,9 @@
+{
+    "name": "TEMPLATE_VaultGunSharer",
+    "version_number": "0.0.1",
+    "website_url": "",
+    "description": "Template/example mod made from VaultGunSharer. Add any additional own Mod dependencies below you used in your vault files.",
+    "dependencies": [
+        "NGA-VaultGunSharer-0.1.0"
+    ]
+}
