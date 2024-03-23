@@ -4,6 +4,7 @@ using FistVR;
 using UnityEngine;
 using HarmonyLib;
 using BepInEx.Configuration;
+using System.Collections.Generic;
 
 namespace NGA
 {
@@ -30,6 +31,23 @@ namespace NGA
         private static ConfigEntry<float> config_mag_lock_dist;
         //private static ConfigEntry<float> config_mag_lock_hozdist;
         private static ConfigEntry<float> config_mag_auto_load_above;
+        private static ConfigEntry<string> comma_forbids;
+
+        private static HashSet<string> forbiddenNames = new HashSet<string>
+        {
+            "P90_Mag(Clone)",
+            "LaserPistol_Magazine(Clone)",
+            "HandCrankFrank_Magazine(Clone)",
+            "Mk19_BeltBox(Clone)",
+            "BerthierCarbine_Magazine(Clone)",
+            "Carcano1891_Magazine(Clone)",
+            "M2Tombstone_BeltBox(Clone)",
+            "KWG_Magazine(Clone)",
+            "SustenanceCrossbow_Battery(Clone)",
+            "Minigun_Box(Clone)",
+            "S9R Derringer_Mag(Clone)",
+            "G11_Mag(Clone)"
+        };
 
         private void Awake()
         {
@@ -39,6 +57,8 @@ namespace NGA
             Logger.LogMessage("New harmony");
             SetUpConfigFields();
             Logger.LogMessage("Setted the fields");
+            UpdateForbidden();
+            Logger.LogMessage("Updated forbidden guns.");
             harmony.PatchAll();
             Logger.LogMessage($"Hello, world! Sent from NGA.MagAnimations 0.0.1");
         }
@@ -62,6 +82,23 @@ namespace NGA
                                          "Auto Load distance above entered",
                                          0.02f,
                                          "How far above mag entry point is needed to push to auto load.");
+            comma_forbids = Config.Bind("Excluded Mags",
+                                         "List to Forbid",
+                                         "G11_Mag(Clone),Minigun_Box(Clone)",
+                                         "Use toolbox object info tool to find name of magazine, Comma separated, add (Clone) postfix. Needs game restart.");
+        }
+
+        private void UpdateForbidden() {
+            string[] nameArray = comma_forbids.Value.Split(',');
+            foreach (string name in nameArray)
+            {
+                forbiddenNames.Add(name.Trim());
+            }
+            Logger.LogMessage("Excluded guns for Mag Animations:");
+            foreach (string name in forbiddenNames)
+            {
+                Logger.LogMessage(name);
+            }
         }
 
         
@@ -75,26 +112,33 @@ namespace NGA
                 if (!config_enable.Value) {
                     return;
                 }
-                if (__instance.IsHeld && __instance.m_hand.OtherHand.CurrentInteractable != null 
+                if (__instance == null || !__instance.IsHeld || __instance.m_hand == null) {
+                    return;
+                }
+                if (__instance.IsHeld &&  __instance.m_hand != null &&
+                    __instance.m_hand.OtherHand != null &&
+                    __instance.m_hand.OtherHand.CurrentInteractable != null 
                     && __instance.m_hand.OtherHand.CurrentInteractable is FVRFireArm)
                 {
                     FVRFireArm fvrfireArm = __instance.m_hand.OtherHand.CurrentInteractable as FVRFireArm;
+                    if (forbiddenNames.Contains(__instance.gameObject.name)) {
+                        return;
+                    }
                     Transform hole = fvrfireArm.GetMagMountPos(__instance.IsBeltBox);
+                    if (hole == null) {
+                        return;
+                    }
                     bool isMagPalming = __instance.m_magChild != null || __instance.m_magParent != null;
                     if (fvrfireArm.Magazine == null  && fvrfireArm.MagazineType == __instance.MagazineType 
                         && fvrfireArm.GetMagMountPos(__instance.IsBeltBox) != null
                         && !isMagPalming)
                     {
                         // Force easy load.
-                        __instance.SetAllCollidersToLayer(false, "NoCol");
 						__instance.IsNonPhysForLoad = true;
 
                         // Do calcs.
                         Vector3 localUp = hole.up;
-                        if (__instance.gameObject.name == "P90_Mag(Clone)"
-                            || __instance.gameObject.name == "LaserPistol_Magazine(Clone)") {
-                            return;
-                        }
+                        
                         Vector3 toHole = __instance.RoundEjectionPos.position - hole.position;
                         float horizontalDist = Vector3.ProjectOnPlane(toHole, localUp).magnitude;
                         float upDist = DistanceAlongUpAxis(__instance.transform, hole);
