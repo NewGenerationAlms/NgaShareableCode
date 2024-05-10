@@ -36,6 +36,8 @@ namespace NGA
         private static ConfigEntry<float> SprintMinHand;
         private static ConfigEntry<float> AccelMult;
         private static ConfigEntry<bool> OnlyArmSprint;
+        private static ConfigEntry<bool> AllowJump;
+        private static ConfigEntry<float> JumpThres;
         
         // SHH.
         //public static ConfigEntry<string> RewardVaultName;
@@ -85,6 +87,13 @@ namespace NGA
                                             new AcceptableValueFloatRangeStep(0.25f, 20f, 0.25f), new object[0]));
             OnlyArmSprint = Config.Bind<bool>("TwinStickArmSwing", "Only Sprint w Arms.", 
                                                 true, "Pressing sprint does nothing unless you swing your arms (recommended).");
+            AllowJump = Config.Bind<bool>("TwinStickArmJump", "Allow Armswing Jump.", 
+                                                true, "Thrust hands above head.");
+            JumpThres = Config.Bind<float>("TwinStickArmJump",
+                                            "Needed arm movement (Jump up).",
+                                            2f, 
+                                            new ConfigDescription("How fast both hands need to be flung above head.", 
+                                            new AcceptableValueFloatRangeStep(0.25f, 20f, 0.25f), new object[0]));
         }
 
         private static bool CheckSkip() {
@@ -125,12 +134,17 @@ namespace NGA
             {
                 if (CheckSkip()) return;
                 if (!TwinArmSwingEnabled.Value) return;
+                if (__instance.Mode != FVRMovementManager.MovementMode.TwinStick) {
+                    return;
+                }
                 // Adds angular speed of arms.
                 float num = 0f;
                 bool is_sprinting = false;
                 for (int j = 0; j < __instance.Hands.Length; j++)
                 {
-                    float num2 = __instance.Hands[j].Input.VelAngularWorld.magnitude;
+                    float num2 = Mathf.Max(__instance.Hands[j].Input.VelAngularWorld.magnitude,
+                                            __instance.Hands[j].Input.VelLinearWorld.magnitude);
+                    
                     if (__instance.Hands[j].IsThisTheRightHand)
                     {
                         is_sprinting = __instance.Hands[j].Input.TouchpadNorthPressed;
@@ -139,10 +153,6 @@ namespace NGA
                 }
                 // Calculates current arm impetus.
                 __instance.m_tarArmSwingerImpetus = num;
-                // if (num < __instance.m_curArmSwingerImpetus) {
-                //     __instance.m_curArmSwingerImpetus = num;
-                // } else {
-                // }
                 __instance.m_curArmSwingerImpetus = Mathf.MoveTowards(__instance.m_curArmSwingerImpetus, 
                                 __instance.m_tarArmSwingerImpetus, 
                                 AccelMult.Value * Time.deltaTime);
@@ -168,22 +178,14 @@ namespace NGA
                         __instance.worldTPAxis.z *= final_speed;
                     }
                 }
-            }
-            private static void Postfix(FVRMovementManager __instance)
-            {
-                if (CheckSkip()) return;
-                if (!TwinArmSwingEnabled.Value) return;
-                bool is_sprinting = false;
-                for (int j = 0; j < __instance.Hands.Length; j++)
+                float jumpThreshold = JumpThres.Value;
+                if (AllowJump.Value
+                        && __instance.Hands[0].transform.position.y > __instance.Head.position.y 
+                        && __instance.Hands[1].transform.position.y > __instance.Head.position.y 
+                        && __instance.Hands[0].Input.VelLinearWorld.y > jumpThreshold
+                        && __instance.Hands[1].Input.VelLinearWorld.y > jumpThreshold)
                 {
-                    if (__instance.Hands[j].IsThisTheRightHand)
-                    {
-                        is_sprinting = __instance.Hands[j].Input.TouchpadNorthPressed;
-                    }
-                }
-                if (is_sprinting) {
-                    // Logger.LogWarning("WTPA3! " + __instance.worldTPAxis);
-                    // Logger.LogWarning("After3! " + __instance.m_smoothLocoVelocity);
+                    __instance.Jump();
                 }
             }
         }
