@@ -35,6 +35,8 @@ namespace NGA
         private static ConfigEntry<float> JogMinHand;
         private static ConfigEntry<float> SprintMinHand;
         private static ConfigEntry<float> AccelMult;
+        private static ConfigEntry<float> LinVelMult;
+        private static ConfigEntry<float> AngVelMult;
         private static ConfigEntry<bool> OnlyArmSprint;
         private static ConfigEntry<bool> AllowJump;
         private static ConfigEntry<float> JumpThres;
@@ -84,6 +86,16 @@ namespace NGA
                                             "Acceleration multiplier.",
                                             10f, 
                                             new ConfigDescription("How fast you speed up and slow down when swinging faster or slower.", 
+                                            new AcceptableValueFloatRangeStep(0.25f, 20f, 0.25f), new object[0]));
+            LinVelMult = Config.Bind<float>("TwinStickArmSwing",
+                                            "Linear Hand Vel Mult.",
+                                            3f, 
+                                            new ConfigDescription("How much linear hand velocity contributes to sprint speed.", 
+                                            new AcceptableValueFloatRangeStep(0.25f, 20f, 0.25f), new object[0]));
+            AngVelMult = Config.Bind<float>("TwinStickArmSwing",
+                                            "Angular Hand Vel Mult.",
+                                            1f, 
+                                            new ConfigDescription("How much angular hand velocity contributes to sprint speed.", 
                                             new AcceptableValueFloatRangeStep(0.25f, 20f, 0.25f), new object[0]));
             OnlyArmSprint = Config.Bind<bool>("TwinStickArmSwing", "Only Sprint w Arms.", 
                                                 true, "Pressing sprint does nothing unless you swing your arms (recommended).");
@@ -142,22 +154,22 @@ namespace NGA
                 bool is_sprinting = false;
                 for (int j = 0; j < __instance.Hands.Length; j++)
                 {
-                    float num2 = Mathf.Max(__instance.Hands[j].Input.VelAngularWorld.magnitude,
-                                            __instance.Hands[j].Input.VelLinearWorld.magnitude);
+                    float num2 = Mathf.Max(__instance.Hands[j].Input.VelAngularWorld.magnitude * AngVelMult.Value,
+                                            __instance.Hands[j].Input.VelLinearWorld.magnitude * LinVelMult.Value);
                     
                     if (__instance.Hands[j].IsThisTheRightHand)
                     {
-                        is_sprinting = __instance.Hands[j].Input.TouchpadNorthPressed;
+                        is_sprinting = __instance.m_sprintingEngaged;
                     }
                     num += num2;
                 }
-                // Calculates current arm impetus.
+                // Calculates current arm impetus, zero if sprint not pressed.
                 __instance.m_tarArmSwingerImpetus = num;
-                __instance.m_curArmSwingerImpetus = Mathf.MoveTowards(__instance.m_curArmSwingerImpetus, 
+                __instance.m_curArmSwingerImpetus = is_sprinting ? Mathf.MoveTowards(__instance.m_curArmSwingerImpetus, 
                                 __instance.m_tarArmSwingerImpetus, 
-                                AccelMult.Value * Time.deltaTime);
+                                AccelMult.Value * Time.deltaTime) : 0f;
                 // Updates player speed based on impetus if sprinting.
-                if (is_sprinting) {
+                if (is_sprinting && __instance.m_isGrounded) {
                     float impetus = __instance.m_curArmSwingerImpetus;
                     // If hand speed is greater than minimum jog trigger value.
                     float jogSpeed = JogSpeedCap.Value;
