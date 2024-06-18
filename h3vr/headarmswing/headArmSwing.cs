@@ -118,10 +118,10 @@ namespace NGA
         {
             private static void Prefix(FVRMovementManager __instance)
             {
+                keptLoco = GM.Options.MovementOptions.TPLocoSpeedIndex;
                 if (CheckSkip()) return;
                 if (!TwinArmSwingEnabled.Value) return;
                 if (!OnlyArmSprint.Value) return;
-                keptLoco = GM.Options.MovementOptions.TPLocoSpeedIndex;
                 GM.Options.MovementOptions.TPLocoSpeedIndex = 5;
                 int size = GM.Options.MovementOptions.TPLocoSpeeds.Length;
                 for (int i = 0; i < size; i++) {
@@ -130,44 +130,31 @@ namespace NGA
             }
             private static void Postfix(FVRMovementManager __instance)
             {
-                if (CheckSkip()) return;
-                if (!TwinArmSwingEnabled.Value) return;
-                if (!OnlyArmSprint.Value) return;
                 GM.Options.MovementOptions.TPLocoSpeedIndex = keptLoco;
-            }
-            static int keptLoco = 0;
-        }
-
-        [HarmonyPatch(typeof(FVRMovementManager))]
-		[HarmonyPatch("FU")]
-        public class FVRMovementManagerFU : MonoBehaviour
-        {
-            private static void Prefix(FVRMovementManager __instance)
-            {
                 if (CheckSkip()) return;
                 if (!TwinArmSwingEnabled.Value) return;
+                //if (!OnlyArmSprint.Value) return;
                 if (__instance.Mode != FVRMovementManager.MovementMode.TwinStick) {
                     return;
                 }
                 // Adds angular speed of arms.
                 float num = 0f;
-                bool is_sprinting = false;
+                bool is_sprinting = __instance.m_sprintingEngaged;
                 for (int j = 0; j < __instance.Hands.Length; j++)
                 {
                     float num2 = Mathf.Max(__instance.Hands[j].Input.VelAngularWorld.magnitude * AngVelMult.Value,
                                             __instance.Hands[j].Input.VelLinearWorld.magnitude * LinVelMult.Value);
                     
-                    if (__instance.Hands[j].IsThisTheRightHand)
-                    {
-                        is_sprinting = __instance.m_sprintingEngaged;
-                    }
                     num += num2;
                 }
                 // Calculates current arm impetus, zero if sprint not pressed.
+                // Logger.LogMessage("curImp: " + __instance.m_curArmSwingerImpetus);
                 __instance.m_tarArmSwingerImpetus = num;
                 __instance.m_curArmSwingerImpetus = is_sprinting ? Mathf.MoveTowards(__instance.m_curArmSwingerImpetus, 
                                 __instance.m_tarArmSwingerImpetus, 
                                 AccelMult.Value * Time.deltaTime) : 0f;
+                // Logger.LogWarning("sprint: " + is_sprinting + " curImp: " + __instance.m_curArmSwingerImpetus
+                //                         + " tarImp: " + num);
                 // Updates player speed based on impetus if sprinting.
                 if (is_sprinting && __instance.m_isGrounded) {
                     float impetus = __instance.m_curArmSwingerImpetus;
@@ -186,8 +173,10 @@ namespace NGA
                             final_speed = sprintSpeed * sprintScaleUp;
                         }
                         // Multiplies the vector of player position by new speed.
-                        __instance.worldTPAxis.x *= final_speed;
-                        __instance.worldTPAxis.z *= final_speed;
+                        // Logger.LogMessage("X: " + __instance.worldTPAxis.x + " Z: " + __instance.worldTPAxis.z + " scl: " + final_speed);
+                        Vector3 normalized = __instance.worldTPAxis.normalized;
+                        __instance.worldTPAxis.x += normalized.x * final_speed;
+                        __instance.worldTPAxis.z += normalized.z * final_speed;
                     }
                 }
                 float jumpThreshold = JumpThres.Value;
@@ -200,7 +189,18 @@ namespace NGA
                     __instance.Jump();
                 }
             }
+            static int keptLoco = 0;
         }
+
+        // [HarmonyPatch(typeof(FVRMovementManager))]
+		// [HarmonyPatch("FU")]
+        // public class FVRMovementManagerFU : MonoBehaviour
+        // {
+        //     private static void Prefix(FVRMovementManager __instance)
+        //     {
+                
+        //     }
+        // }
 
         internal new static ManualLogSource Logger { get; private set; }
     }
